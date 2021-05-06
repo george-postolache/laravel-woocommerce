@@ -86,17 +86,17 @@ trait QueryBuilderTrait
      *
      * @return object
      */
-    protected function create($data)
+    protected function create($data,$url,$ck,$cs)
     {
         if ($this->isLazyCollection) {
-            return LazyCollection::make(WooCommerce::create($this->endpoint, $data));
+            return LazyCollection::make(WooCommerce::create($this->endpoint, $data,$url,$ck,$cs));
         }
 
         if ($this->isCollection) {
-            return collect(WooCommerce::create($this->endpoint, $data));
+            return collect(WooCommerce::create($this->endpoint, $data,$url,$ck,$cs));
         }
 
-        return WooCommerce::create($this->endpoint, $data);
+        return WooCommerce::create($this->endpoint, $data,$url,$ck,$cs);
     }
 
     /**
@@ -107,17 +107,17 @@ trait QueryBuilderTrait
      *
      * @return object
      */
-    protected function update($id, $data)
+    protected function update($id, $data,$url,$ck,$cs)
     {
         if ($this->isLazyCollection) {
-            return LazyCollection::make(WooCommerce::update("{$this->endpoint}/{$id}", $data));
+            return LazyCollection::make(WooCommerce::update("{$this->endpoint}/{$id}", $data,$url,$ck,$cs));
         }
 
         if ($this->isCollection) {
-            return collect(WooCommerce::update("{$this->endpoint}/{$id}", $data));
+            return collect(WooCommerce::update("{$this->endpoint}/{$id}", $data,$url,$ck,$cs));
         }
 
-        return WooCommerce::update("{$this->endpoint}/{$id}", $data);
+        return WooCommerce::update("{$this->endpoint}/{$id}", $data,$url,$ck,$cs);
     }
 
     /**
@@ -128,17 +128,17 @@ trait QueryBuilderTrait
      *
      * @return object
      */
-    protected function delete($id, $options = [])
+    protected function delete($id, $options = [],$url,$ck,$cs)
     {
         if ($this->isLazyCollection) {
-            return LazyCollection::make(WooCommerce::delete("{$this->endpoint}/{$id}", $options));
+            return LazyCollection::make(WooCommerce::delete("{$this->endpoint}/{$id}", $options,$url,$ck,$cs));
         }
 
         if ($this->isCollection) {
-            return collect(WooCommerce::delete("{$this->endpoint}/{$id}", $options));
+            return collect(WooCommerce::delete("{$this->endpoint}/{$id}", $options,$url,$ck,$cs));
         }
 
-        return WooCommerce::delete("{$this->endpoint}/{$id}", $options);
+        return WooCommerce::delete("{$this->endpoint}/{$id}", $options,$url,$ck,$cs);
     }
 
     /**
@@ -148,17 +148,17 @@ trait QueryBuilderTrait
      *
      * @return object
      */
-    protected function batch($data)
+    protected function batch($data,$url,$ck,$cs)
     {
         if ($this->isLazyCollection) {
-            return LazyCollection::make(WooCommerce::create("{$this->endpoint}/batch", $data));
+            return LazyCollection::make(WooCommerce::create("{$this->endpoint}/batch", $data,$url,$ck,$cs));
         }
 
         if ($this->isCollection) {
-            return collect(WooCommerce::create("{$this->endpoint}/batch", $data));
+            return collect(WooCommerce::create("{$this->endpoint}/batch", $data,$url,$ck,$cs));
         }
 
-        return WooCommerce::create("{$this->endpoint}/batch", $data);
+        return WooCommerce::create("{$this->endpoint}/batch", $data,$url,$ck,$cs);
     }
 
     /**
