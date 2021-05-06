@@ -13,10 +13,10 @@ trait WooCommerceTrait
      *
      * @return array
      */
-    public function all($endpoint = '', $options = [])
+    public function all($endpoint = '', $options = [],$url,$ck,$cs)
     {
         try {
-            self::__construct();
+            self::__construct($url,$ck,$cs);
 
             return $this->client->get($endpoint, $options);
         } catch (\Exception $e) {
@@ -33,10 +33,10 @@ trait WooCommerceTrait
      *
      * @return array
      */
-    public function find($endpoint = '', $options = [])
+    public function find($endpoint = '', $options = [],$url,$ck,$cs)
     {
         try {
-            self::__construct();
+            self::__construct($url,$ck,$cs);
 
             return $this->client->get($endpoint, $options);
         } catch (\Exception $e) {
@@ -53,10 +53,10 @@ trait WooCommerceTrait
      *
      * @return array
      */
-    public function create($endpoint, $data)
+    public function create($endpoint, $data,$url,$ck,$cs)
     {
         try {
-            self::__construct();
+            self::__construct($url,$ck,$cs);
 
             return $this->client->post($endpoint, $data);
         } catch (\Exception $e) {
@@ -73,10 +73,10 @@ trait WooCommerceTrait
      *
      * @return array
      */
-    public function update($endpoint, $data)
+    public function update($endpoint, $data,$url,$ck,$cs)
     {
         try {
-            self::__construct();
+            self::__construct($url,$ck,$cs);
 
             return $this->client->put($endpoint, $data);
         } catch (\Exception $e) {
@@ -93,10 +93,10 @@ trait WooCommerceTrait
      *
      * @return array
      */
-    public function delete($endpoint, $options = [])
+    public function delete($endpoint, $options = [],$url,$ck,$cs)
     {
         try {
-            self::__construct();
+            self::__construct($url,$ck,$cs);
 
             return $this->client->delete($endpoint, $options);
         } catch (\Exception $e) {

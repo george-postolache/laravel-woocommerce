@@ -24,7 +24,7 @@ class WooCommerceApi
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($url ='',$ck ='',$cs ='')
     {
         try {
             $this->headers = [
@@ -33,9 +33,9 @@ class WooCommerceApi
             ];
 
             $this->client = new Client(
-                config('woocommerce.store_url'),
-                config('woocommerce.consumer_key'),
-                config('woocommerce.consumer_secret'),
+                $url,
+                $ck,
+                $cs,
                 [
                     'version'           => 'wc/'.config('woocommerce.api_version'),
                     'wp_api'            => config('woocommerce.wp_api_integration'),
